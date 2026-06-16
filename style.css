@@ -1,0 +1,289 @@
+:root{
+  --ink:#16201c;
+  --paper:#f4f1e8;
+  --paper-2:#ebe6d6;
+  --moss:#3a5a40;
+  --moss-deep:#1f3a2a;
+  --clay:#bc6c25;
+  --clay-soft:#dda15e;
+  --line:#cdc6b0;
+  --white:#ffffff;
+  --hue-mirai:#2a4d8f;    /* 北教大・未来の学び協創研究センター */
+  --hue-iwa:#3e7a5e;      /* 北教大・岩見沢校 */
+  --tgu-inc:#7a3142;      /* 学芸大・教育インキュベーションセンター */
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Zen Kaku Gothic New','Outfit',sans-serif;background:var(--paper);
+  color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+
+/* host site bar */
+.host-bar{background:var(--moss-deep);color:#cfd4cc;font-size:11.5px;
+  padding:8px 0;letter-spacing:.04em}
+.host-bar .wrap{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.host-bar a{color:var(--clay-soft)}
+.host-bar a:hover{color:#fff}
+.host-bar .sep{opacity:.4}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(244,241,232,.92);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+.brand{display:flex;flex-direction:column;line-height:1.2}
+.brand .mark{font-family:'Outfit',sans-serif;font-weight:700;font-size:12px;
+  letter-spacing:.22em;color:var(--moss)}
+.brand .jp{font-family:'Shippori Mincho',serif;font-weight:800;font-size:18px;
+  margin-top:4px}
+.brand .sub{font-size:10.5px;color:#7a8079;margin-top:3px;letter-spacing:.04em}
+.nav ul{display:flex;gap:30px;list-style:none}
+.nav ul a{font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:500;
+  letter-spacing:.08em;position:relative;padding:6px 0}
+.nav ul a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;
+  background:var(--clay);transition:width .3s ease}
+.nav ul a:hover::after{width:100%}
+@media(max-width:840px){.nav ul{display:none}}
+
+/* hero */
+.hero{position:relative;padding:88px 0 76px;overflow:hidden}
+.hero-grid{position:absolute;inset:0;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:64px 64px;opacity:.32;
+  -webkit-mask-image:radial-gradient(ellipse 70% 60% at 70% 30%,#000,transparent);
+  mask-image:radial-gradient(ellipse 70% 60% at 70% 30%,#000,transparent)}
+.hero-inner{position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;
+  font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;
+  letter-spacing:.2em;color:var(--clay);margin-bottom:24px}
+.eyebrow::before{content:"";width:32px;height:1px;background:var(--clay)}
+.hero h1{font-family:'Shippori Mincho',serif;font-weight:800;
+  font-size:clamp(34px,5.4vw,68px);line-height:1.22;letter-spacing:.01em;max-width:20ch}
+.hero h1 .accent{color:var(--moss);position:relative}
+.hero h1 .accent::after{content:"";position:absolute;left:0;right:0;bottom:.08em;
+  height:.18em;background:var(--clay-soft);opacity:.55;z-index:-1}
+.hero p.lead{margin-top:28px;max-width:60ch;font-size:15.5px;line-height:2.05;color:#3c463f}
+
+/* 3つの主催組織チップ */
+.tri-orgs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:38px}
+@media(max-width:880px){.tri-orgs{grid-template-columns:1fr}}
+.org-chip{
+  display:flex;align-items:center;gap:13px;background:var(--white);
+  border:1px solid var(--line);border-radius:4px;padding:16px 18px;
+  transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s ease,border-color .3s ease;
+  position:relative;color:inherit;
+}
+a.org-chip:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 28px -16px rgba(31,58,42,.35);
+  border-color:var(--clay);
+}
+.org-chip .ico{
+  width:42px;height:42px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;color:#fff;font-family:'Shippori Mincho',serif;
+  font-weight:800;font-size:16px;flex-shrink:0;
+}
+.org-chip.o1 .ico{background:var(--hue-mirai)}
+.org-chip.o2 .ico{background:var(--hue-iwa)}
+.org-chip.o3 .ico{background:var(--tgu-inc)}
+.org-chip .name .ja{font-family:'Shippori Mincho',serif;font-weight:700;font-size:13px;
+  line-height:1.45}
+.org-chip .name .univ{font-size:10.5px;color:#7a8079;margin-top:3px;
+  font-family:'Outfit',sans-serif;letter-spacing:.04em}
+.org-chip .ext{position:absolute;top:10px;right:10px;
+  width:22px;height:22px;border-radius:50%;background:var(--paper-2);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .3s ease}
+a.org-chip:hover .ext{background:var(--clay)}
+.org-chip .ext svg{stroke:var(--moss);transition:stroke .3s ease}
+a.org-chip:hover .ext svg{stroke:#fff}
+
+.hero-stats{display:flex;gap:44px;margin-top:42px;flex-wrap:wrap}
+.hero-stats .stat .num{font-family:'Outfit',sans-serif;font-weight:700;
+  font-size:38px;color:var(--moss-deep);line-height:1}
+.hero-stats .stat .lab{font-size:11.5px;letter-spacing:.12em;color:#6a7068;
+  margin-top:6px;font-family:'Outfit',sans-serif}
+
+/* concept */
+.concept{padding:68px 0;background:var(--paper-2)}
+.concept-grid{display:grid;grid-template-columns:1.1fr 1.4fr;gap:48px;align-items:center}
+@media(max-width:880px){.concept-grid{grid-template-columns:1fr;gap:32px}}
+.concept-art{background:var(--white);border:1px solid var(--line);border-radius:4px;
+  padding:34px;position:relative;aspect-ratio:5/4.4;
+  display:flex;align-items:center;justify-content:center}
+.concept-art svg{width:100%;height:100%;max-width:420px}
+.concept-text .ev{font-family:'Outfit',sans-serif;font-weight:700;font-size:12px;
+  letter-spacing:.2em;color:var(--clay);margin-bottom:14px}
+.concept-text h2{font-family:'Shippori Mincho',serif;font-weight:800;
+  font-size:clamp(24px,3vw,32px);line-height:1.5;margin-bottom:20px}
+.concept-text p{font-size:14.5px;line-height:2.05;color:#3c463f;margin-bottom:14px}
+.concept-text p:last-child{margin-bottom:0}
+
+/* section */
+.section{padding:90px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;
+  margin-bottom:38px;flex-wrap:wrap;gap:20px}
+.sec-head .t .en{font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;
+  letter-spacing:.22em;color:var(--clay)}
+.sec-head .t .jp{font-family:'Shippori Mincho',serif;font-weight:800;
+  font-size:clamp(26px,3.4vw,36px);margin-top:10px}
+.sec-head .desc{max-width:36ch;font-size:13px;line-height:1.95;color:#5a625a}
+
+/* filter */
+.filters{display:flex;gap:8px;margin-bottom:30px;flex-wrap:wrap;align-items:center}
+.filters .fl{font-family:'Outfit',sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:.12em;color:#7a8079;margin-right:8px}
+.fbtn{font-family:'Zen Kaku Gothic New',sans-serif;font-size:12.5px;font-weight:500;
+  background:var(--white);border:1px solid var(--line);color:#3c463f;
+  padding:9px 16px;border-radius:99px;cursor:pointer;transition:all .25s ease;
+  display:inline-flex;align-items:center;gap:8px}
+.fbtn:hover{border-color:var(--clay)}
+.fbtn.active{background:var(--moss-deep);border-color:var(--moss-deep);color:#fff}
+.fbtn .dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.fbtn[data-f="o1"] .dot{background:var(--hue-mirai)}
+.fbtn[data-f="o2"] .dot{background:var(--hue-iwa)}
+.fbtn[data-f="o3"] .dot{background:var(--tgu-inc)}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:980px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.cards{grid-template-columns:1fr}}
+.card{background:var(--white);border:1px solid var(--line);border-radius:4px;
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s ease,opacity .3s;
+  position:relative}
+.card:hover{transform:translateY(-6px);box-shadow:0 22px 44px -22px rgba(31,58,42,.4)}
+.card.hidden{display:none}
+.card-univ-bar{height:5px;background:var(--moss)}
+.card[data-org="o1"] .card-univ-bar{background:var(--hue-mirai)}
+.card[data-org="o2"] .card-univ-bar{background:var(--hue-iwa)}
+.card[data-org="o3"] .card-univ-bar{background:var(--tgu-inc)}
+
+.card-photo{position:relative;aspect-ratio:4/3.3;overflow:hidden;background:var(--paper-2)}
+.card-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;
+  filter:saturate(.96);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.card:hover .card-photo img{transform:scale(1.05)}
+.card-photo .placeholder{width:100%;height:100%;display:flex;align-items:center;
+  justify-content:center;background:linear-gradient(135deg,var(--paper-2) 0%,#dcd5bf 100%)}
+.card-photo .placeholder svg{width:42%;opacity:.45}
+.card-no{position:absolute;top:12px;left:12px;
+  font-family:'Outfit',sans-serif;font-weight:700;font-size:11px;
+  letter-spacing:.1em;color:#fff;background:rgba(31,58,42,.78);
+  padding:5px 11px;border-radius:2px}
+.card-univ-badge{position:absolute;top:12px;right:12px;
+  font-family:'Outfit',sans-serif;font-size:9.5px;font-weight:700;
+  letter-spacing:.08em;color:#fff;padding:5px 9px;border-radius:2px;
+  max-width:62%;text-align:right;line-height:1.3}
+.card[data-org="o1"] .card-univ-badge{background:var(--hue-mirai)}
+.card[data-org="o2"] .card-univ-badge{background:var(--hue-iwa)}
+.card[data-org="o3"] .card-univ-badge{background:var(--tgu-inc)}
+.card-field{position:absolute;bottom:12px;left:12px;right:12px;
+  display:flex;flex-wrap:wrap;gap:5px}
+.tag{font-family:'Outfit',sans-serif;font-size:10px;font-weight:600;
+  letter-spacing:.05em;background:rgba(244,241,232,.94);color:var(--moss-deep);
+  padding:4px 9px;border-radius:2px}
+.card-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+.card-role{font-family:'Outfit',sans-serif;font-size:10.5px;font-weight:600;
+  letter-spacing:.13em;color:var(--clay)}
+.card-name{font-family:'Shippori Mincho',serif;font-weight:800;font-size:22px;
+  margin-top:6px}
+.card-affil{font-size:11.5px;color:#6a7068;margin-top:5px;line-height:1.55}
+.card-title{font-size:13.5px;line-height:1.7;font-weight:500;margin-top:14px;color:#26302a}
+.card-link{margin-top:auto;padding-top:18px;display:flex;align-items:center;
+  justify-content:space-between}
+.card-link span{font-family:'Outfit',sans-serif;font-size:11.5px;font-weight:600;
+  letter-spacing:.1em;color:var(--moss)}
+.card-link .arr{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .3s,border-color .3s}
+.card:hover .card-link .arr{background:var(--clay);border-color:var(--clay)}
+.card-link .arr svg{stroke:var(--moss);transition:stroke .3s}
+.card:hover .card-link .arr svg{stroke:#fff}
+
+/* recruit */
+.recruit{background:linear-gradient(135deg,var(--moss-deep) 0%,#13261b 100%);
+  color:var(--paper)}
+.recruit .wrap{padding:80px 32px}
+.recruit-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:center}
+@media(max-width:880px){.recruit-grid{grid-template-columns:1fr;gap:34px}}
+.recruit h2{font-family:'Shippori Mincho',serif;font-weight:800;
+  font-size:clamp(26px,3.4vw,36px);line-height:1.4;margin-bottom:18px}
+.recruit h2 .hl{color:var(--clay-soft)}
+.recruit .lead{font-size:14.5px;line-height:2;color:#c6cdc4;margin-bottom:24px}
+.recruit-eyebrow{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:.22em;color:var(--clay-soft);margin-bottom:18px;
+  display:inline-flex;align-items:center;gap:10px}
+.recruit-eyebrow::before{content:"";width:30px;height:1px;background:var(--clay-soft)}
+.steps{display:flex;flex-direction:column;gap:14px}
+.step{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  padding:18px 22px;border-radius:4px;display:grid;grid-template-columns:auto 1fr;
+  gap:16px;align-items:flex-start}
+.step .sn{font-family:'Outfit',sans-serif;font-weight:700;font-size:13px;
+  color:var(--clay-soft);letter-spacing:.06em;padding-top:2px;min-width:30px}
+.step h4{font-family:'Shippori Mincho',serif;font-weight:700;font-size:15px;margin-bottom:6px}
+.step p{font-size:12.5px;line-height:1.8;color:#a8b1a6}
+.recruit-cta{margin-top:24px;display:inline-flex;align-items:center;gap:12px;
+  background:var(--clay);color:#fff;padding:15px 28px;border-radius:3px;
+  font-family:'Outfit',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.08em;
+  transition:background .3s,transform .3s}
+.recruit-cta:hover{background:var(--clay-soft);transform:translateY(-3px)}
+
+/* contact section */
+.contact-block{padding:70px 0;background:var(--white);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+@media(max-width:760px){.contact-grid{grid-template-columns:1fr;gap:30px}}
+.contact-eyebrow{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:.22em;color:var(--clay);margin-bottom:14px}
+.contact-block h2{font-family:'Shippori Mincho',serif;font-weight:800;
+  font-size:clamp(24px,3vw,30px);line-height:1.45;margin-bottom:16px}
+.contact-block p{font-size:13.5px;line-height:1.95;color:#3c463f}
+.contact-card{background:var(--paper);border:1px solid var(--line);border-radius:4px;
+  padding:28px 32px}
+.contact-card .ck{font-family:'Outfit',sans-serif;font-size:10.5px;font-weight:700;
+  letter-spacing:.16em;color:var(--moss);margin-bottom:10px}
+.contact-card .cn{font-family:'Shippori Mincho',serif;font-weight:700;font-size:17px;
+  margin-bottom:6px}
+.contact-card .ca{font-size:12.5px;color:#5a625a;line-height:1.7;margin-bottom:14px}
+.contact-card a.cl{display:inline-flex;align-items:center;gap:8px;
+  font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;
+  letter-spacing:.08em;color:var(--clay)}
+.contact-card a.cl:hover{color:var(--moss-deep)}
+
+/* partners */
+.partners{padding:60px 0;background:var(--paper-2);border-top:1px solid var(--line)}
+.partners h3{font-family:'Shippori Mincho',serif;font-weight:700;font-size:18px;
+  text-align:center;margin-bottom:8px}
+.partners .sub{text-align:center;font-size:12px;color:#7a8079;margin-bottom:32px}
+.partners-list{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;align-items:center}
+.partner{font-family:'Shippori Mincho',serif;font-weight:700;font-size:15px;color:#7a8079}
+
+/* footer */
+footer{background:var(--ink);color:#cfd4cc;padding:58px 0 36px}
+.foot-top{display:grid;grid-template-columns:1.4fr 2fr;gap:48px;
+  padding-bottom:34px;border-bottom:1px solid #2c352f}
+@media(max-width:760px){.foot-top{grid-template-columns:1fr;gap:32px}}
+.foot-brand .jp{font-family:'Shippori Mincho',serif;font-weight:800;font-size:18px;color:#fff}
+.foot-brand .en{font-family:'Outfit',sans-serif;font-size:10.5px;letter-spacing:.2em;
+  color:var(--clay-soft);margin-top:7px}
+.foot-brand .meta{font-size:11.5px;color:#8a9189;margin-top:14px;line-height:1.8}
+.foot-orgs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+@media(max-width:600px){.foot-orgs{grid-template-columns:1fr}}
+.foot-org{background:rgba(255,255,255,.04);border:1px solid #2c352f;
+  border-radius:4px;padding:16px 18px}
+.foot-org .lk{font-family:'Outfit',sans-serif;font-size:9.5px;font-weight:700;
+  letter-spacing:.14em;color:var(--clay-soft);margin-bottom:8px}
+.foot-org .ln{font-family:'Shippori Mincho',serif;font-weight:700;font-size:13px;
+  color:#fff;line-height:1.5;margin-bottom:8px}
+.foot-org a{font-size:11px;color:#a8b1a6;display:inline-flex;align-items:center;gap:6px}
+.foot-org a:hover{color:var(--clay-soft)}
+.foot-bottom{padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;
+  gap:14px;font-family:'Outfit',sans-serif;font-size:11px;
+  letter-spacing:.06em;color:#7d847c}
+.foot-bottom a{color:#7d847c}
+.foot-bottom a:hover{color:var(--clay-soft)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(28px);
+  transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
